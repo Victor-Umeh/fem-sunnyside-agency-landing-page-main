@@ -397,4 +397,10 @@ body {
     grid-auto-flow: column;
     width: 100%;
   }
+  .img1 source,
+  .img1 img {
+    width: 100%;
+    max-width: 1000px;
+    height: 800px;
+  }
 }
