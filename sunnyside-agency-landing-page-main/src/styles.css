@@ -66,10 +66,6 @@ body {
   transform: scale(0);
   transition: all 400ms;
 }
-.nav__links li {
-  width: 100%;
-  display: inline-block;
-}
 .nav__links-a {
   text-decoration: none;
   font-weight: 600;
@@ -91,6 +87,7 @@ body {
   width: 26px;
   height: 2px;
   margin: 0.4em;
+  border-radius: 50px;
   background: var(--white);
 }
 .lines {
@@ -317,38 +314,46 @@ body {
 
 /* DESKTOP LAYOUT -----------------------------------------*/
 @media (min-width: 62.5rem) {
-  img {
-    /* display: block; */
-  }
   .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 50px;
-    width: 100%;
-    padding-inline: 10vw;
-    margin-top: 2vh;
     position: fixed;
     top: 0;
-    z-index: 5;
+    width: 100%;
+    padding-inline: 4vw;
+    margin-top: 4vh;
   }
   .nav__links {
-    display: flex;
+    --transition: all 0.3s;
+    background: transparent;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
+    position: static;
+    z-index: 0;
+    transform: scale(1);
+    width: auto;
+    gap: 8rem;
   }
-  .nav__links {
-    display: flex;
-    list-style: none;
-    justify-content: flex-end;
-    /* width: 50%; */
+  .nav__links-a {
+    color: var(--white);
+  }
+  .nav__links-btn {
+    color: var(--vdd-blue);
+    background: var(--white);
+    padding: 1.7rem 4rem;
+    font-size: 1.38rem;
+  }
+  .nav__links-a:hover {
+    transition: var(--transition);
+    opacity: 0.8;
+  }
+  .nav__links-btn:hover {
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.8);
   }
   .nav__hamburger {
     display: none;
-  }
-  .logo {
   }
   .hero {
     height: 100vh;
@@ -404,14 +409,13 @@ body {
     position: relative;
     display: inline;
   }
-  .bg-red::after {
-    background: var(--soft-red);
-  }
   .info__link::after {
+    --width: 15rem;
+    --height: 10px;
     content: "";
     width: 0;
     height: 0;
-    left: 0;
+    left: -6px;
     bottom: 0;
     position: absolute;
     border-radius: 50px;
@@ -419,14 +423,16 @@ body {
     z-index: -1;
   }
   .link--yellow:hover::after {
-    height: 10px;
-    width: 14rem;
+    height: var(--height);
+    width: var(--width);
     background: var(--yellow);
+    display: inline;
   }
   .link--red:hover::after {
-    height: 10px;
-    width: 14rem;
+    height: var(--height);
+    width: var(--width);
     background: var(--soft-red);
+    display: inline;
   }
   .brief__body {
     padding-inline: 1px;
@@ -453,11 +459,5 @@ body {
     grid-template-columns: auto;
     grid-auto-flow: column;
     width: 100%;
-  }
-  .img1 source,
-  .img1 img {
-    width: 100%;
-    max-width: 1000px;
-    height: 800px;
   }
 }
